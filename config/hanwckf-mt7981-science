@@ -1,6 +1,6 @@
 CONFIG_TARGET_mediatek=y
 CONFIG_TARGET_mediatek_mt7981=y
-CONFIG_TARGET_mediatek_mt7981_DEVICE_mt7981-360-t7-108M=y
+CONFIG_TARGET_mediatek_mt7981_DEVICE_nokia_ea0326gmp=y
 
 # CONFIG_TARGET_ROOTFS_INITRAMFS is not set
 CONFIG_DEVEL=y
@@ -294,15 +294,15 @@ CONFIG_PACKAGE_kmod-nf-ipvs=y
 CONFIG_PACKAGE_kmod-veth=y
 CONFIG_PACKAGE_kmod-vxlan=y
 CONFIG_PACKAGE_luci-app-ddnsto=n
-CONFIG_PACKAGE_luci-app-store=n
-CONFIG_PACKAGE_luci-app-quickstart=n
-CONFIG_PACKAGE_luci-i18n-quickstart-zh-cn=n
-CONFIG_PACKAGE_luci-app-istorex=n
+CONFIG_PACKAGE_luci-app-store=y
+CONFIG_PACKAGE_luci-app-quickstart=y
+CONFIG_PACKAGE_luci-i18n-quickstart-zh-cn=y
+CONFIG_PACKAGE_luci-app-istorex=y
 
-CONFIG_PACKAGE_luci-app-frpc=y
-CONFIG_PACKAGE_luci-app-socat=y
-CONFIG_PACKAGE_luci-app-wireguard=y
-CONFIG_PACKAGE_luci-app-zerotier=y
+CONFIG_PACKAGE_luci-app-frpc=n
+CONFIG_PACKAGE_luci-app-socat=n
+CONFIG_PACKAGE_luci-app-wireguard=n
+CONFIG_PACKAGE_luci-app-zerotier=n
 CONFIG_PACKAGE_luci-app-nps=n
 CONFIG_PACKAGE_luci-app-openclash=y
 
