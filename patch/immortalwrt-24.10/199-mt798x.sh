@@ -1,15 +1,15 @@
 #!/bin/sh
 
-uci set network.lan.ip6assign=64
-uci del network.globals.ula_prefix
-uci set dhcp.lan.dns_service='0'
+uci del network.wan6
+uci del network.lan.ip6assign
+uci del dhcp.lan.ra
+uci del dhcp.lan.ra_slaac
+uci del dhcp.lan.dns_service
 uci del dhcp.lan.dhcpv6
 uci del dhcp.lan.ndp
-uci set dhcp.lan.ra='server'
 uci del dhcp.lan.ra_flags
 uci add_list dhcp.lan.ra_flags='none'
-uci set network.lan.delegate='0'
-uci set network.lan.ip6ifaceid='random'
+uci del network.globals.ula_prefix
 uci commit dhcp
 uci commit network
 
@@ -41,18 +41,25 @@ sed -i '$a src/gz core https://mirrors.pku.edu.cn/immortalwrt/releases/24.10.4/t
 #sed -i '$a #src/gz kiddin9 https://dl.openwrt.ai/packages-24.10/aarch64_cortex-a53/kiddin9' /etc/opkg/customfeeds.conf
 
 
-#chmod +x /root/open-wifi.sh
+uci set network.lan.ipaddr=192.168.5.1
 
-uci set wireless.default_radio1.ssid=WiFi-$(cat /sys/class/ieee80211/phy0/macaddress|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-5G
-uci set wireless.default_radio0.ssid=WiFi-$(cat /sys/class/ieee80211/phy0/macaddress|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-2.4G
-#uci set wireless.default_radio1.encryption='psk2+ccmp'
-#uci set wireless.default_radio0.encryption='psk2+ccmp'
-#uci set wireless.default_radio1.key='66668888'
-#uci set wireless.default_radio0.key='66668888'
+#uci set wireless.default_radio1.ssid=WiFi-$(cat /sys/class/ieee80211/phy0/macaddress|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-5G
+#uci set wireless.default_radio0.ssid=WiFi-$(cat /sys/class/ieee80211/phy0/macaddress|awk -F ":" '{print $5""$6 }' | tr 'a-z' 'A-Z')-2.4G
+uci set wireless.default_radio1.ssid=immortalwrt-5G
+uci set wireless.default_radio0.ssid=immortalwrt-2.4G
+
+uci set wireless.default_radio1.encryption='psk2+ccmp'
+uci set wireless.default_radio0.encryption='psk2+ccmp'
+uci set wireless.default_radio1.key='66668888'
+uci set wireless.default_radio0.key='66668888'
 #uci set wireless.default_radio0.macaddr='random'
 #uci set wireless.default_radio1.macaddr='random'
 uci commit wireless
 uci commit
+
+sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+sed -i 's/root:::0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' /etc/shadow
+
 
 /etc/init.d/network restart >/dev/null 2>&1
 exit 0
