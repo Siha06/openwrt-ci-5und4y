@@ -68,7 +68,7 @@ git clone --depth 1 -b js https://github.com/sirpdboy/luci-app-netspeedtest.git 
 git clone --depth 1 https://github.com/zyqfork/luci-app-ap-modem.git package/luci-app-ap-modem
 
 rm -rf feeds/packages/net/{adguardhome,tailscale}
-git clone --depth 1 https://github.com/kenzok8/small-package.git package/kz8-small
+git clone --depth 1 https://github.com/kenzok8/jell.git package/kz8-small
 mv package/kz8-small/adguardhome package/adguardhome
 mv package/kz8-small/luci-app-adguardhome package/luci-app-adguardhome
 mv package/kz8-small/luci-app-ap-modem package/luci-app-ap-modem
@@ -78,6 +78,8 @@ mv package/kz8-small/luci-app-kodexplorer package/luci-app-kodexplorer
 mv package/kz8-small/luci-app-wrtbwmon package/luci-app-wrtbwmon
 mv package/kz8-small/wrtbwmon package/wrtbwmon
 mv package/kz8-small/luci-app-poweroff package/luci-app-poweroff
+mv package/kz8-small/luci-app-smartdns package/luci-app-smartdns
+mv package/kz8-small/smartdns package/smartdns
 mv package/kz8-small/luci-app-socat package/luci-app-socat
 mv package/kz8-small/luci-app-tailscale package/luci-app-tailscale
 mv package/kz8-small/tailscale package/tailscale
