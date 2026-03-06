@@ -48,13 +48,16 @@ git clone --depth 1 -b main https://github.com/linkease/nas-packages-luci.git pa
 mv package/nas-packages/network/services/* package/nas-packages/
 rm -rf package/nas-packages/network
 
-rm -rf feeds/packages/net/{adguardhome,alist,lucky,tailscale}
-rm -rf feeds/luci/applications/{luci-app-adguardhome,luci-app-alist,luci-app-lucky,luci-app-tailscale}
+rm -rf feeds/packages/net/{adguardhome,alist,easytier,lucky,tailscale}
+rm -rf feeds/luci/applications/{luci-app-adguardhome,luci-app-alist,luci-app-easytier,luci-app-lucky,luci-app-tailscale}
 git clone --depth 1 https://github.com/kenzok8/small-package.git package/kz8-small
 mv package/kz8-small/adguardhome package/adguardhome
 mv package/kz8-small/luci-app-adguardhome package/luci-app-adguardhome
+mv package/kz8-small/easytier package/easytier
+mv package/kz8-small/luci-app-easytier package/luci-app-easytier
 mv package/kz8-small/lucky package/lucky
 mv package/kz8-small/luci-app-lucky package/luci-app-lucky
+mv package/kz8-small/luci-app-npc package/luci-app-npc
 mv package/kz8-small/luci-app-wrtbwmon package/luci-app-wrtbwmon
 mv package/kz8-small/wrtbwmon package/wrtbwmon
 mv package/kz8-small/luci-app-tailscale package/luci-app-tailscale
@@ -62,13 +65,13 @@ mv package/kz8-small/tailscale package/tailscale
 rm -rf package/kz8-small
 
 
-git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/packages package/imm23pkg
-mv package/imm23pkg/net/mentohust package/mentohust
-rm -rf package/imm23pkg
+#git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/packages package/imm23pkg
+#mv package/imm23pkg/net/mentohust package/mentohust
+#rm -rf package/imm23pkg
 
-rm -rf feeds/luci/applications/luci-app-mentohust
-git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci package/imm23luci
-mv package/imm23luci/applications/luci-app-mentohust package/luci-app-mentohust
-rm -rf package/imm23luci
+#rm -rf feeds/luci/applications/luci-app-mentohust
+#git clone --depth 1 -b openwrt-23.05 https://github.com/immortalwrt/luci package/imm23luci
+#mv package/imm23luci/applications/luci-app-mentohust package/luci-app-mentohust
+#rm -rf package/imm23luci
 
 
