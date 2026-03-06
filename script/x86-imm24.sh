@@ -41,7 +41,7 @@ mv package/nas-packages/network/services/* package/nas-packages/
 rm -rf package/nas-packages/network
 
 rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
+git clone --depth 1 https://github.com/sbwml/packages_lang_golang feeds/packages/lang/golang
 
 #find ./ | grep Makefile | grep v2ray-geodata | xargs rm -f
 #find ./ | grep Makefile | grep mosdns | xargs rm -f
@@ -64,6 +64,8 @@ git clone --depth 1 https://github.com/ilxp/luci-app-ikoolproxy.git package/luci
 git clone --depth 1 https://github.com/sirpdboy/luci-app-eqosplus.git package/luci-app-eqosplus
 git clone --depth 1 https://github.com/sirpdboy/luci-app-partexp.git package/luci-app-partexp
 git clone --depth 1 -b js https://github.com/sirpdboy/luci-app-netspeedtest.git package/luci-app-netspeedtest
+
+git clone --depth 1 https://github.com/zyqfork/luci-app-ap-modem.git package/luci-app-ap-modem
 
 rm -rf feeds/packages/net/{adguardhome,tailscale}
 git clone --depth 1 https://github.com/kenzok8/small-package.git package/kz8-small
